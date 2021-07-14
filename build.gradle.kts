@@ -1,29 +1,30 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.10"
-    application
+  kotlin("jvm") version "1.5.10"
+  application
 }
 
 group = "me.admin"
 version = "1.0-SNAPSHOT"
 
 repositories {
-    mavenCentral()
+  mavenCentral()
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+  testImplementation(kotlin("test"))
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
 }
 
 tasks.test {
-    useJUnit()
+  useJUnit()
 }
 
 tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "1.8"
+  kotlinOptions.jvmTarget = "1.8"
 }
 
 application {
-    mainClassName = "MainKt"
+  mainClassName = "MainKt"
 }
